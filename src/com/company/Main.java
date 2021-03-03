@@ -1,18 +1,21 @@
 package com.company;
 
-import controllers.MedicineController;
+import controllers.EmployeeController;
 import data.DBManager;
 import data.interfaces.IDBManager;
-import repositories.MedicineRepository;
-import repositories.interfaces.IMedicineRepository;
+import repositories.EmployeeRepository;
+import repositories.IEmployeeRepository;
 
 public class Main {
     public static void main(String[] args) {
         IDBManager dbManager = new DBManager();
-        IMedicineRepository medicineRepository = new MedicineRepository(dbManager);
-        MedicineController medicineController = new MedicineController(medicineRepository);
-        MyApplication myApplication = new MyApplication(medicineController);
+        IEmployeeRepository employeeRepository = new EmployeeRepository(dbManager);
+        EmployeeController employeeController = new EmployeeController(employeeRepository);
+        Projects projects= new Projects(employeeRepository);
+        MyApplication myApplication = new MyApplication(employeeController,projects);
         myApplication.start();
+
+
     }
 }
 

@@ -10,7 +10,7 @@ public class DBManager  implements IDBManager {
 
     @Override
     public Connection getConnection() throws SQLException, ClassNotFoundException {
-        String connectionUrl = "jdbc:postgresql://localhost:5432/java";
+        String connectionUrl = "jdbc:postgresql://localhost:5432/";
         try {
             Class.forName("org.postgresql.Driver");
 
